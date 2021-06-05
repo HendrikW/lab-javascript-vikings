@@ -1,55 +1,49 @@
 ![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)
 
-# LAB | JS Vikings _Object-oriented programming_
+# LAB | JS Vikings
 
 ## Introduction
 
 We have learned Object-oriented programming and how `class` and inheritance work in JavaScript. Now lets work with our Viking friends, applying all of the concepts we have just learned.
 
+<br>
+
 ## Requirements
 
-- Fork this repo
-- Clone this repo
+- Fork this repo.
+- Clone this repo.
+- Visit the "Actions" tab in your fork, and enable workflows.
+
+<br>
 
 ## Submission
 
 Upon completion, run the following commands:
 
-```
+```bash
 $ git add .
-$ git commit -m "done"
+$ git commit -m "Solved lab"
 $ git push origin master
 ```
 
 Create Pull Request so your TAs can check up your work.
 
+<br>
+
 ### Test, test, test!
 
-Yes! The best way to ensure your code is doing what is expected is to constantly test. Go ahead and open the file `SpecRunner.html`!
+Please, open your terminal, change directories into the root of the lab, and run `npm install` to install the test runner. Next, run the `npm run test:watch` command to run the automated tests. 
 
-**Run the tests**
-
-We have got a _test suite_ for our constructor functions and their methods but there are no tests currently being executed. We have to uncomment each `it()` inside of `tests/viking.spec.js` and implement the code in `src/viking.js` to make each test pass.
-
-If you open `tests/viking.spec.js` and take a look at **lines 11-21**, You should see some `it()` calls (tests) that are commented out. Let's start by uncommenting **lines 11-13**:
-
-```javascript
-describe('constructor function', () => {
-  it('should receive 2 arguments (health & strength)', () => {
-    expect(Soldier.length).toEqual(2);
-  });
-
-  // it('should receive the health property as its 1st argument', () => {
-  //   expect(soldier.health).toEqual(health);
-  // });
-
-  // it('should receive the strength property as its 2nd argument', () => {
-  //   expect(soldier.strength).toEqual(strength);
-  // });
-});
+```shell
+$ cd lab-javascript-vikings
+$ npm install
+$ npm run test:watch
 ```
+<br>
 
-Now that particular test (_should receive 2 arguments (health & strength)_) is failing!
+Open the resulting `lab-solution.html` file with the "Live Server" VSCode extension to see the test results. You will see that most of the tests are failing. Let's get to work to make all of them pass!
+
+<br>
 
 ## Instructions
 
@@ -87,12 +81,7 @@ class Saxon {}
 class War {}
 ```
 
-**Execute all the tests**
-
-Now that we are passing the first test, the next step is to uncomment the next test. To do that, we have to remove the comments from **lines 15-17** in the `tests/viking.spec.js` file, and refresh the page to see what we have to implement next.
-Once we have verified that the test is failing, we can implement the code to make it pass.
-
-![](https://i.imgur.com/5TPElt8.jpg)
+<br>
 
 ### Iteration 1: Soldier
 
@@ -116,6 +105,8 @@ Modify the `Soldier` class and add 2 methods to it: `attack()`, and `receiveDama
 - should receive **1 argument** (the damage)
 - should remove the received damage from the `health` property
 - **shouldn't return** anything
+
+<br>
 
 ### Iteration 2: Viking
 
@@ -160,6 +151,8 @@ Modify the `Viking` class, have it inherit from `Soldier`, re-implement the `rec
 - should receive **0 arguments**
 - should return **"Odin Owns You All!"**
 
+<br>
+
 ### Iteration 3: Saxon
 
 A `Saxon` is a weaker kind of `Soldier`. Unlike a `Viking`, a `Saxon` has no name. Their `receiveDamage()` method will also be different than the original `Soldier` version.
@@ -172,7 +165,7 @@ Modify the `Saxon`, constructor function, have it inherit from `Soldier` and re-
 
 #### class
 
-- you don't have to include constructor method since this class will inherit perfectly from the parents class, both, the health and the strength (it `extends` Soldier class :wink: )
+- You don't have to include constructor method since this class will inherit perfectly from the parents class, both, the health and the strength (it `extends` Soldier class :wink: )
 
 #### `attack()` method
 
@@ -192,7 +185,9 @@ Modify the `Saxon`, constructor function, have it inherit from `Soldier` and re-
 - **if the Saxon is still alive**, it should return **_"A Saxon has received DAMAGE points of damage"_**
 - **if the Saxon dies**, it should return **_"A Saxon has died in combat"_**
 
-### BONUS- Iteration 4: War
+<br>
+
+### BONUS - Iteration 4: War
 
 Now we get to the good stuff: WAR! Our `War` class will allow us to have a `Viking` army and a `Saxon` army that battle each other.
 
@@ -250,7 +245,9 @@ The `Saxon` version of `vikingAttack()`. A `Viking` receives the damage equal to
 - should remove dead vikings from the army
 - should return **result of calling `receiveDamage()` of a `Viking`** with the `strength` of a `Saxon`
 
-### SUPER BONUS
+<br>
+
+### SUPER BONUS - Iteration 5
 
 Since there is a lot of repetitive code in the previous two iterations, _vikingAttack()_ and _saxonAttack()_ try to create one _generic_ method and call it in the case of _vikingAttack_ and in the case of _saxonAttack_ instead of using almost the same code for both methods. (This iteration doesn't have test, so ask your TAs and your instructor to give you feedback on the quality of your code after the refactor.)
 
@@ -263,7 +260,5 @@ Returns the current status of the `War` based on the size of the armies.
 - **if the `Saxon` array is empty**, should return **_"Vikings have won the war of the century!"_**
 - **if the `Viking` array is empty**, should return **_"Saxons have fought for their lives and survived another day..."_**
 - **if there are at least 1 `Viking` and 1 `Saxon`**, should return **_"Vikings and Saxons are still in the thick of battle."_**
-
-<br>
 
 **Happy Coding!** 💙
